@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaak aanmelden</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Zaak aanmelden</h1>
+        <form action="/step2" method="post">
+            <div class="form-group">
+                <label for="caseType">Mijn zaak gaat over*</label>
+                <select class="form-control" id="caseType" name="caseType" required>
+                    <option value="">-- Maak uw keuze --</option>
+                    <option value="aanrijdingsschade">Aanrijdingsschade</option>
+                    <option value="massaschade">Massaschade</option>
+                    <option value="zakelijke">Zakelijke</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Volgende</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Registration</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="mt-4">
+            <img src="/assets/das.png" alt="DAS Logo">
+            <h1 class="display-4">Case Registration</h1>
+            <nav class="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">1. Start Registration</li>
+                    <li class="breadcrumb-item">2. Your Case & Documents</li>
+                    <li class="breadcrumb-item">3. Your Information</li>
+                    <li class="breadcrumb-item">4. Summary</li>
+                    <li class="breadcrumb-item">5. Submit</li>
+                </ol>
+            </nav>
+        </header>
+
+        <section class="my-4">
+            <h2>Start Registration</h2>
+            <div class="alert alert-info">
+                <h4 class="alert-heading">Important Information</h4>
+                <ul>
+                    <li>Collision damage? <a href="#">Report your case with collision damage here</a></li>
+                    <li>Mass damage? Is your case part of mass damage? <a href="#">Report your mass damage case here</a></li>
+                    <li>Entrepreneur? <a href="#">Report your business case here</a></li>
+                    <li>Faster registration? Have your policy number, policy sheet, and contact details of your intermediary at hand.</li>
+                    <li>Attachments are not mandatory in this form: you can always submit them later.</li>
+                </ul>
+            </div>
+
+            <p>Registering your case takes 10-15 minutes.</p>
+
+            <form action="/step2" method="post">
+                <div class="form-group">
+                    <label>Does your conflict involve an amount higher than €175?</label>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="amountConflict" id="yes" value="Yes">
+                            <label class="form-check-label" for="yes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="amountConflict" id="no" value="No">
+                            <label class="form-check-label" for="no">No</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="amountConflict" id="unknown" value="Don't know / Not applicable">
+                            <label class="form-check-label" for="unknown">Don't know / Not applicable</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="caseType">What is your case about?</label>
+                    <select class="form-control" id="caseType" name="caseType" required>
+                        <option value="">-- Make your choice --</option>
+                        <option value="collisionDamage">Collision Damage</option>
+                        <option value="massDamage">Mass Damage</option>
+                        <option value="business">Business</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Next &rarr;</button>
+                    <button type="button" class="btn btn-secondary">Finish later</button>
+                </div>
+            </form>
+        </section>
+
+        <footer>
+            <p>Made by <a href="https://digilize.de">Digilize Agency</a></p>
+        </footer>
+    </div>
+</body>
+</html>

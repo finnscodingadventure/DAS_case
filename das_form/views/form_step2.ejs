@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Details</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="mt-4">
+            <img src="/assets/das.png" alt="DAS Logo">
+            <h1 class="display-4">Case Registration</h1>
+            <nav class="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">1. Start Registration</a></li>
+                    <li class="breadcrumb-item active">2. Your Case & Documents</li>
+                    <li class="breadcrumb-item">3. Your Information</li>
+                    <li class="breadcrumb-item">4. Summary</li>
+                    <li class="breadcrumb-item">5. Submit</li>
+                </ol>
+            </nav>
+        </header>
+
+        <section class="my-4">
+            <h2>What is your case about?</h2>
+            <form action="/step3" method="post">
+                <div class="form-group">
+                    <label for="caseDescription">Briefly describe why you need legal assistance. What is your situation? Who is your opponent? What do you expect from DAS in this situation? (limited to a maximum of 5000 characters)*</label>
+                    <textarea class="form-control" id="caseDescription" name="caseDescription" rows="5" maxlength="5000" placeholder="5000 characters remaining"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="conflictStart">When did the conflict begin?*</label>
+                    <input type="date" class="form-control" id="conflictStart" name="conflictStart" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Were you insured with DAS for at least two months before the above date?*</label>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="insuredBefore" id="insuredYes" value="Yes" required>
+                            <label class="form-check-label" for="insuredYes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="insuredBefore" id="insuredNo" value="No">
+                            <label class="form-check-label" for="insuredNo">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Is there a deadline you must respond to?*</label>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="deadline" id="deadlineYes" value="Yes" required>
+                            <label class="form-check-label" for="deadlineYes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="deadline" id="deadlineNo" value="No">
+                            <label class="form-check-label" for="deadlineNo">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Next &rarr;</button>
+                    <button type="button" class="btn btn-secondary">Finish later</button>
+                </div>
+            </form>
+        </section>
+
+        <footer>
+            <p>Made by <a href="https://digilize.de">Digilize Agency</a></p>
+        </footer>
+    </div>
+</body>
+</html>

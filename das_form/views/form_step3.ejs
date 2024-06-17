@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Information</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="mt-4">
+            <img src="/assets/das.png" alt="DAS Logo">
+            <h1 class="display-4">Case Registration</h1>
+            <nav class="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">1. Start Registration</a></li>
+                    <li class="breadcrumb-item"><a href="/step2">2. Your Case & Documents</a></li>
+                    <li class="breadcrumb-item active">3. Your Information</li>
+                    <li class="breadcrumb-item">4. Summary</li>
+                    <li class="breadcrumb-item">5. Submit</li>
+                </ol>
+            </nav>
+        </header>
+
+        <section class="my-4">
+            <h2>Your Information</h2>
+            <form action="/summary" method="post"> <!-- Change action to /summary -->
+                <div class="form-group">
+                    <label>Title*</label>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="title" id="mr" value="Mr" required>
+                            <label class="form-check-label" for="mr">Mr</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="title" id="mrs" value="Mrs">
+                            <label class="form-check-label" for="mrs">Mrs</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="initials">Initial(s)</label>
+                        <input type="text" class="form-control" id="initials" name="initials" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="middleName">Middle Name</label>
+                        <input type="text" class="form-control" id="middleName" name="middleName">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name*</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="postcode">Search by Postcode</label>
+                        <input type="text" class="form-control" id="postcode" name="postcode" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="houseNumber">House Number</label>
+                        <input type="text" class="form-control" id="houseNumber" name="houseNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addition">Addition</label>
+                        <input type="text" class="form-control" id="addition" name="addition">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="streetCity">Street and City*</label>
+                    <input type="text" class="form-control" id="streetCity" name="streetCity" required>
+                </div>
+
+                <div class="form-group-inline">
+                    <div class="form-group">
+                        <label for="birthDate">Insured's Date of Birth*</label>
+                        <input type="date" class="form-control" id="birthDate" name="birthDate" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Next &rarr;</button>
+                    <button type="button" class="btn btn-secondary">Finish later</button>
+                </div>
+            </form>
+        </section>
+
+        <footer>
+            <p>Made by <a href="https://digilize.de">Digilize Agency</a></p>
+        </footer>
+    </div>
+</body>
+</html>
