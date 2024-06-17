@@ -4,17 +4,15 @@ const path = require('path');
 
 const app = express();
 
-// Set the view engine to EJS
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-// Use body-parser for parsing form data
+// Use body-parser middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// Serve static files from the 'public' directory
+// Set view engine and static files
+app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes
+// Set routes
 const formRoutes = require('./routes');
 app.use('/', formRoutes);
 
