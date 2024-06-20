@@ -28,6 +28,13 @@
         .summary-table tr:hover {
             background-color: #f1f1f1;
         }
+        .category-title {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -49,11 +56,64 @@
         <section class="my-4">
             <h2>Summary</h2>
             <p>Below is the summary of the information you have provided:</p>
+
+            <!-- Section for Step 1 Data -->
+            <div class="category-title">Step 1: Start Registration</div>
             <table class="summary-table">
                 <thead>
                     <tr>
-                        <th>Section</th>
-                        <th>Your information</th>
+                        <th>Field</th>
+                        <th>Information</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Does your conflict involve an amount higher than €175?</td>
+                        <td><%= data.amountConflict %></td>
+                    </tr>
+                    <tr>
+                        <td>What is your case about?</td>
+                        <td><%= data.caseType %></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Section for Step 2 Data -->
+            <div class="category-title">Step 2: Your Case & Documents</div>
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Information</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Case Description</td>
+                        <td><%= data.caseDescription %></td>
+                    </tr>
+                    <tr>
+                        <td>Conflict Start Date</td>
+                        <td><%= data.conflictStart %></td>
+                    </tr>
+                    <tr>
+                        <td>Insured with DAS for at least two months before the conflict?</td>
+                        <td><%= data.insuredBefore %></td>
+                    </tr>
+                    <tr>
+                        <td>Is there a deadline you must respond to?</td>
+                        <td><%= data.deadline %></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Section for Step 3 Data -->
+            <div class="category-title">Step 3: Your Information</div>
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Information</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -95,8 +155,25 @@
                     </tr>
                 </tbody>
             </table>
+
             <div class="form-group">
                 <form action="/submit" method="post">
+                    <!-- Hidden fields to pass all data -->
+                    <input type="hidden" name="amountConflict" value="<%= data.amountConflict %>">
+                    <input type="hidden" name="caseType" value="<%= data.caseType %>">
+                    <input type="hidden" name="caseDescription" value="<%= data.caseDescription %>">
+                    <input type="hidden" name="conflictStart" value="<%= data.conflictStart %>">
+                    <input type="hidden" name="insuredBefore" value="<%= data.insuredBefore %>">
+                    <input type="hidden" name="deadline" value="<%= data.deadline %>">
+                    <input type="hidden" name="title" value="<%= data.title %>">
+                    <input type="hidden" name="initials" value="<%= data.initials %>">
+                    <input type="hidden" name="middleName" value="<%= data.middleName %>">
+                    <input type="hidden" name="lastName" value="<%= data.lastName %>">
+                    <input type="hidden" name="postcode" value="<%= data.postcode %>">
+                    <input type="hidden" name="houseNumber" value="<%= data.houseNumber %>">
+                    <input type="hidden" name="addition" value="<%= data.addition %>">
+                    <input type="hidden" name="streetCity" value="<%= data.streetCity %>">
+                    <input type="hidden" name="birthDate" value="<%= data.birthDate %>">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>

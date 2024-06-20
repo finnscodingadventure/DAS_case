@@ -26,9 +26,13 @@
         <section class="my-4">
             <h2>What is your case about?</h2>
             <form action="/step3" method="post">
+                <!-- Hidden fields for Step 1 data -->
+                <input type="hidden" name="amountConflict" value="<%= data.amountConflict %>">
+                <input type="hidden" name="caseType" value="<%= data.caseType %>">
+
                 <div class="form-group">
-                    <label for="caseDescription">Briefly describe why you need legal assistance. What is your situation? Who is your opponent? What do you expect from DAS in this situation? (limited to a maximum of 5000 characters)*</label>
-                    <textarea class="form-control" id="caseDescription" name="caseDescription" rows="5" maxlength="5000" placeholder="5000 characters remaining"></textarea>
+                    <label for="caseDescription">Briefly describe why you need legal assistance...</label>
+                    <textarea class="form-control" id="caseDescription" name="caseDescription" rows="5" maxlength="5000" required></textarea>
                 </div>
 
                 <div class="form-group">
@@ -64,10 +68,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Next &rarr;</button>
-                    <button type="button" class="btn btn-secondary">Finish later</button>
-                </div>
+                <button type="submit" class="btn btn-primary">Next &rarr;</button>
             </form>
         </section>
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Information</title>
+    <title>Personal Information</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -25,49 +25,48 @@
 
         <section class="my-4">
             <h2>Your Information</h2>
-            <form action="/summary" method="post"> <!-- Change action to /summary -->
+            <form action="/summary" method="post">
+                <!-- Hidden fields for data from Step 1 and Step 2 -->
+                <input type="hidden" name="amountConflict" value="<%= data.amountConflict %>">
+                <input type="hidden" name="caseType" value="<%= data.caseType %>">
+                <input type="hidden" name="caseDescription" value="<%= data.caseDescription %>">
+                <input type="hidden" name="conflictStart" value="<%= data.conflictStart %>">
+                <input type="hidden" name="insuredBefore" value="<%= data.insuredBefore %>">
+                <input type="hidden" name="deadline" value="<%= data.deadline %>">
+
                 <div class="form-group">
-                    <label>Title*</label>
-                    <div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="title" id="mr" value="Mr" required>
-                            <label class="form-check-label" for="mr">Mr</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="title" id="mrs" value="Mrs">
-                            <label class="form-check-label" for="mrs">Mrs</label>
-                        </div>
-                    </div>
+                    <label for="title">Title*</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="initials">Initial(s)</label>
-                        <input type="text" class="form-control" id="initials" name="initials" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="middleName">Middle Name</label>
-                        <input type="text" class="form-control" id="middleName" name="middleName">
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name*</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName" required>
-                    </div>
+                <div class="form-group">
+                    <label for="initials">Initial(s)*</label>
+                    <input type="text" class="form-control" id="initials" name="initials" required>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="postcode">Search by Postcode</label>
-                        <input type="text" class="form-control" id="postcode" name="postcode" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="houseNumber">House Number</label>
-                        <input type="text" class="form-control" id="houseNumber" name="houseNumber" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="addition">Addition</label>
-                        <input type="text" class="form-control" id="addition" name="addition">
-                    </div>
+                <div class="form-group">
+                    <label for="middleName">Middle Name</label>
+                    <input type="text" class="form-control" id="middleName" name="middleName">
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name*</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="postcode">Postcode*</label>
+                    <input type="text" class="form-control" id="postcode" name="postcode" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="houseNumber">House Number*</label>
+                    <input type="text" class="form-control" id="houseNumber" name="houseNumber" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="addition">Addition</label>
+                    <input type="text" class="form-control" id="addition" name="addition">
                 </div>
 
                 <div class="form-group">
@@ -75,17 +74,12 @@
                     <input type="text" class="form-control" id="streetCity" name="streetCity" required>
                 </div>
 
-                <div class="form-group-inline">
-                    <div class="form-group">
-                        <label for="birthDate">Insured's Date of Birth*</label>
-                        <input type="date" class="form-control" id="birthDate" name="birthDate" required>
-                    </div>
+                <div class="form-group">
+                    <label for="birthDate">Date of Birth*</label>
+                    <input type="date" class="form-control" id="birthDate" name="birthDate" required>
                 </div>
 
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Next &rarr;</button>
-                    <button type="button" class="btn btn-secondary">Finish later</button>
-                </div>
+                <button type="submit" class="btn btn-primary">Next &rarr;</button>
             </form>
         </section>
 
