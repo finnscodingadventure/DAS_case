@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Claim Submission Confirmation</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            margin: 0 auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header img {
+            width: 100px;
+        }
+        .content {
+            margin-bottom: 20px;
+        }
+        .content h2 {
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .content p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .content td,
+        .content th {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .content th {
+            background-color: #007bff;
+            color: #fff;
+            text-align: left;
+        }
+        .content tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .content tr:hover {
+            background-color: #f1f1f1;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        footer p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://weword.de/assets/das.png" alt="DAS Logo" />
+        </header>
+        <div class="content">
+            <h2>Claim Submission Confirmation</h2>
+            <p>Dear [Customer Name],</p>
+            <p>
+                Thank you for submitting your claim. We have received your information and our team is currently reviewing it. Below is a summary of your submission:
+            </p>
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Information</th>
+                </tr>
+                <tr>
+                    <td>Case Description</td>
+                    <td>{{caseDescription}}</td>
+                </tr>
+                <tr>
+                    <td>Submission Date</td>
+                    <td>{{submissionDate}}</td>
+                </tr>
+                <tr>
+                    <td>Title</td>
+                    <td>{{title}}</td>
+                </tr>
+                <tr>
+                    <td>Full Name</td>
+                    <td>{{fullName}}</td>
+                </tr>
+                <tr>
+                    <td>Postcode</td>
+                    <td>{{postcode}}</td>
+                </tr>
+                <tr>
+                    <td>House Number</td>
+                    <td>{{houseNumber}}</td>
+                </tr>
+                <tr>
+                    <td>Addition</td>
+                    <td>{{addition}}</td>
+                </tr>
+                <tr>
+                    <td>Street and City</td>
+                    <td>{{streetCity}}</td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td>{{birthDate}}</td>
+                </tr>
+            </table>
+            <p>
+                We will contact you if we need any further information. Thank you for your patience as we process your claim.
+            </p>
+        </div>
+        <footer>
+            <p>Made by <a href="https://digilize.de">Digilize Agency</a></p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Claim Review Notification</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            margin: 0 auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header img {
+            width: 100px;
+        }
+        .content {
+            margin-bottom: 20px;
+        }
+        .content h2 {
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .content p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .content td,
+        .content th {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .content th {
+            background-color: #007bff;
+            color: #fff;
+            text-align: left;
+        }
+        .content tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .content tr:hover {
+            background-color: #f1f1f1;
+        }
+        .highlight {
+            font-weight: bold;
+           
+        }
+        .highlight-value {
+            font-weight: bold;
+        }
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .actions a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 5px;
+        }
+        .actions .btn-confirm {
+            background-color: #28a745;
+        }
+        .actions .btn-adapt {
+            background-color: #dc3545;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        footer p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://weword.de/assets/das.png" alt="DAS Logo" />
+        </header>
+        <div class="content">
+            <h2>Claim Review Notification</h2>
+            <p>Dear Team,</p>
+            <p>
+                The AI has reviewed a new claim and provided the following decision:
+            </p>
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Information</th>
+                </tr>
+                <tr>
+                    <td>Case Description</td>
+                    <td>{{26.result}}</td>
+                </tr>
+                <tr class="highlight">
+                    <td>AI Decision</td>
+                    <td class="highlight-value">{{24.Decision}}</td>
+                </tr>
+                <tr>
+                    <td>Explanation</td>
+                    <td>{{24.Explanation}}</td>
+                </tr>
+            </table>
+            <div class="actions">
+                <a href="https://hook.eu2.make.com/ocqk6dcbgsbx47qt2z6bhuvpbtmhw9r6" class="btn-confirm">Confirm</a>
+                <a href="[Adapt URL]" class="btn-adapt">Adapt</a>
+            </div>
+        </div>
+        <footer>
+            <p>Made by <a href="https://digilize.de">Digilize Agency</a></p>
+        </footer>
+    </div>
+</body>
+</html>
