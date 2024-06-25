@@ -105,7 +105,7 @@ form label {
     display: flex;
     justify-content: flex-start; /* Align items to the left */
     flex-wrap: wrap;
-    gap: 20px; /* Add gap between buttons */
+    gap: 5px; /* Add gap between buttons */
 }
 
 .custom-radio {
