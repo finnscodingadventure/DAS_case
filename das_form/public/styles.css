@@ -103,17 +103,16 @@ form label {
 /* Custom radio buttons */
 .custom-radio-group {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Align items to the left */
     flex-wrap: wrap;
-    max-width: 600px; /* Set a maximum width */
-    margin: 0 auto; /* Center the container */
+    gap: 20px; /* Add gap between buttons */
 }
 
 .custom-radio {
     position: relative;
     display: flex;
     align-items: center;
-    margin: 10px; /* Add some margin to keep buttons apart */
+    margin-right: 10px; /* Space between radio buttons */
 }
 
 .custom-radio input {
