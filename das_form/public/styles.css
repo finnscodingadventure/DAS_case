@@ -105,13 +105,15 @@ form label {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    max-width: 600px; /* Set a maximum width */
+    margin: 0 auto; /* Center the container */
 }
 
 .custom-radio {
     position: relative;
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    margin: 10px; /* Add some margin to keep buttons apart */
 }
 
 .custom-radio input {
