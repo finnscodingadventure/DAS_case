@@ -1,1 +1,0 @@
-self.__SSG_MANIFEST=new Set(["\u002F404","\u002F[[...route]]","\u002Ferror","\u002Funsupported"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
