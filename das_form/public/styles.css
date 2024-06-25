@@ -132,9 +132,9 @@ form label {
 }
 
 .custom-radio input:checked + label {
-    background-color: #e94f62;
+    background-color: #007bff;
     color: #fff;
-    border-color: #e94f62;
+    border-color: #007bff;
 }
 
 .custom-radio label:hover {
@@ -170,11 +170,13 @@ form .btn-primary:hover {
 form .btn-secondary {
     background-color: transparent;
     border-color: #e94f62;
+    color: #e94f62!important;
 }
 
 form .btn-secondary:hover {
     background-color: transparent;
     border-color: #ba3f4e;
+    color: #e94f62!important;
 }
 
 /* Footer logo styling */
