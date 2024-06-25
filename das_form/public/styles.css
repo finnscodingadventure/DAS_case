@@ -158,23 +158,23 @@ form .btn {
 }
 
 form .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #e94f62;
+    border-color: #e94f62;
 }
 
 form .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004b9e;
+    background-color: #ba3f4e;
+    border-color: #ba3f4e;
 }
 
 form .btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
+    background-color: transparent;
+    border-color: #e94f62;
 }
 
 form .btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62;
+    background-color: transparent;
+    border-color: #ba3f4e;
 }
 
 /* Footer logo styling */
