@@ -132,9 +132,9 @@ form label {
 }
 
 .custom-radio input:checked + label {
-    background-color: #007bff;
+    background-color: #e94f62;
     color: #fff;
-    border-color: #007bff;
+    border-color: #e94f62;
 }
 
 .custom-radio label:hover {
@@ -308,7 +308,7 @@ form select {
 
 form select:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #e94f62;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
 }
 
