@@ -1,6 +1,8 @@
 const axios = require('axios');
 const makeWebhookURL = 'https://hook.eu2.make.com/humritfhdt7gbqop56frbiye9vrzcojc'; // Replace with your Make.com webhook URL
 
+let aiDecision = null;
+
 exports.renderFormStep1 = (req, res) => {
     res.render('form_step1');
 };
@@ -24,8 +26,16 @@ exports.renderLoadingScreen = (req, res) => {
     res.render('loading');
 };
 
+exports.getResultStatus = (req, res) => {
+    if (aiDecision) {
+        res.json({ status: 'ready' });
+    } else {
+        res.json({ status: 'processing' });
+    }
+}
+
 exports.renderResultScreen = (req, res) => {
-    res.render('result', { decision: req.query.decision, explanation: req.query.explanation });
+    res.render('result', { decision: aiDecision.decision, explanation: aiDecision.explanation });
 };
 
 exports.handleSubmit = async (req, res) => {
@@ -41,11 +51,13 @@ exports.handleSubmit = async (req, res) => {
         });
 
         // Extract decision and explanation from Make.com response
-        const decision = response.data.decision;
-        const explanation = response.data.explanation;
+        aiDecision = {
+            decision: response.data.decision,
+            explanation: response.data.explanation
+        };
 
         // Redirect to result page with decision and explanation
-        res.redirect(`/result?decision=${encodeURIComponent(decision)}&explanation=${encodeURIComponent(explanation)}`);
+        res.redirect('/result');
     } catch (error) {
         console.error('Error submitting form data:', error);
         res.status(500).send('Error submitting form data.');

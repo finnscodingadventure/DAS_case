@@ -5,28 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading...</title>
     <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-    <div class="w-full h-screen flex items-center justify-center">
-        <div id="loader" class="multi-step-loader">
-            <div class="loader-step">Processing your case</div>
-            <div class="loader-step">Analyzing documents</div>
-            <div class="loader-step">Checking legal coverage</div>
-            <div class="loader-step">Generating report</div>
-            <div class="loader-step">Finalizing</div>
-        </div>
-    </div>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script>
-        const steps = document.querySelectorAll('.loader-step');
-        let currentStep = 0;
-
-        function showNextStep() {
-            steps[currentStep].classList.add('hidden');
-            currentStep = (currentStep + 1) % steps.length;
-            steps[currentStep].classList.remove('hidden');
+        async function checkStatus() {
+            try {
+                const response = await fetch('/result-status');
+                const data = await response.json();
+                if (data.status === 'ready') {
+                    window.location.href = '/result';
+                }
+            } catch (error) {
+                console.error('Error checking status:', error);
+            }
         }
 
-        setInterval(showNextStep, 2000);
+        setInterval(checkStatus, 2000); // Check status every 2 seconds
     </script>
+</head>
+<body>
+    <div class="container">
+        <header class="mt-4">
+            <img src="/assets/das.png" alt="DAS Logo">
+            <h1 class="display-4">Processing...</h1>
+        </header>
+        <div class="loader-container">
+            <div class="loader"></div>
+            <p>Please wait while we process your request.</p>
+        </div>
+    </div>
 </body>
 </html>
