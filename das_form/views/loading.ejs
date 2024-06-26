@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="w-full h-screen flex items-center justify-center">
+        <div id="loader" class="multi-step-loader">
+            <div class="loader-step">Processing your case</div>
+            <div class="loader-step">Analyzing documents</div>
+            <div class="loader-step">Checking legal coverage</div>
+            <div class="loader-step">Generating report</div>
+            <div class="loader-step">Finalizing</div>
+        </div>
+    </div>
+    <script>
+        const steps = document.querySelectorAll('.loader-step');
+        let currentStep = 0;
+
+        function showNextStep() {
+            steps[currentStep].classList.add('hidden');
+            currentStep = (currentStep + 1) % steps.length;
+            steps[currentStep].classList.remove('hidden');
+        }
+
+        setInterval(showNextStep, 2000);
+    </script>
+</body>
+</html>

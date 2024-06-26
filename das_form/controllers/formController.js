@@ -1,56 +1,53 @@
 const axios = require('axios');
+const makeWebhookURL = 'https://hook.eu2.make.com/humritfhdt7gbqop56frbiye9vrzcojc'; // Replace with your Make.com webhook URL
 
 exports.renderFormStep1 = (req, res) => {
-    // Render the first step without any data
     res.render('form_step1');
 };
 
 exports.renderFormStep2 = (req, res) => {
-    // Capture data from Step 1
-    const step1Data = req.body;
-    // Pass data from Step 1 to Step 2 view
-    res.render('form_step2', { data: step1Data });
+    const data = req.body;
+    res.render('form_step2', { data });
 };
 
 exports.renderFormStep3 = (req, res) => {
-    // Combine data from Step 1 and Step 2
-    const allData = {
-        ...req.body // This will include data from Step 1 and Step 2
-    };
-    // Pass combined data to Step 3 view
-    res.render('form_step3', { data: allData });
+    const data = req.body;
+    res.render('form_step3', { data });
 };
 
 exports.renderFormSummary = (req, res) => {
-    // Combine data from Steps 1, 2, and 3
-    const allData = {
-        ...req.body // This will include data from Steps 1, 2, and 3
-    };
-    // Pass combined data to Summary view
-    res.render('form_summary', { data: allData });
+    const data = req.body;
+    res.render('form_summary', { data });
+};
+
+exports.renderLoadingScreen = (req, res) => {
+    res.render('loading');
+};
+
+exports.renderResultScreen = (req, res) => {
+    res.render('result', { decision: req.query.decision, explanation: req.query.explanation });
 };
 
 exports.handleSubmit = async (req, res) => {
-    // Combine all the data from all steps
-    const allData = {
-        ...req.body // This will include all the data gathered so far
-    };
+    const data = req.body;
+
+    // Render loading screen
+    res.render('loading');
 
     try {
-        // Log data for debugging
-        console.log('Data to be sent to webhook:', allData);
-
-        // Send data to the webhook
-        await axios.post('https://hook.eu2.make.com/humritfhdt7gbqop56frbiye9vrzcojc', allData, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
+        // Send data to Make.com webhook
+        const response = await axios.post(makeWebhookURL, data, {
+            headers: { 'Content-Type': 'application/json' }
         });
 
-        // Render the confirmation page with the accumulated data
-        res.render('form_submit', { data: allData });
+        // Extract decision and explanation from Make.com response
+        const decision = response.data.decision;
+        const explanation = response.data.explanation;
+
+        // Redirect to result page with decision and explanation
+        res.redirect(`/result?decision=${encodeURIComponent(decision)}&explanation=${encodeURIComponent(explanation)}`);
     } catch (error) {
-        console.error('Error sending data to webhook:', error);
+        console.error('Error submitting form data:', error);
         res.status(500).send('Error submitting form data.');
     }
 };
