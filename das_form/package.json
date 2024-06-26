@@ -10,9 +10,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@tabler/icons-react": "^3.7.0",
     "axios": "^1.7.2",
     "body-parser": "^1.20.2",
+    "clsx": "^2.1.1",
     "ejs": "^3.1.10",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "framer-motion": "^11.2.12",
+    "tailwind-merge": "^2.3.0"
   }
 }
