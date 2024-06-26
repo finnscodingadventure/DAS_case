@@ -34,49 +34,55 @@
                 <input type="hidden" name="insuredBefore" value="<%= data.insuredBefore %>">
                 <input type="hidden" name="deadline" value="<%= data.deadline %>">
 
-                <div class="form-group">
-                    <label for="title">Title*</label>
-                    <input type="text" class="form-control" id="title" name="title" required>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="title">Title*</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="initials">First Name*</label>
+                        <input type="text" class="form-control" id="initials" name="initials" required>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="initials">First Name*</label>
-                    <input type="text" class="form-control" id="initials" name="initials" required>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="middleName">Middle Name</label>
+                        <input type="text" class="form-control" id="middleName" name="middleName">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lastName">Last Name*</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" required>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="middleName">Middle Name</label>
-                    <input type="text" class="form-control" id="middleName" name="middleName">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="postcode">Postcode*</label>
+                        <input type="text" class="form-control" id="postcode" name="postcode" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="houseNumber">House Number*</label>
+                        <input type="text" class="form-control" id="houseNumber" name="houseNumber" required>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="lastName">Last Name*</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="addition">Addition</label>
+                        <input type="text" class="form-control" id="addition" name="addition">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="streetCity">Street and City*</label>
+                        <input type="text" class="form-control" id="streetCity" name="streetCity" required>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="postcode">Postcode*</label>
-                    <input type="text" class="form-control" id="postcode" name="postcode" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="houseNumber">House Number*</label>
-                    <input type="text" class="form-control" id="houseNumber" name="houseNumber" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="addition">Addition</label>
-                    <input type="text" class="form-control" id="addition" name="addition">
-                </div>
-
-                <div class="form-group">
-                    <label for="streetCity">Street and City*</label>
-                    <input type="text" class="form-control" id="streetCity" name="streetCity" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="birthDate">Date of Birth*</label>
-                    <input type="date" class="form-control" id="birthDate" name="birthDate" required>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="birthDate">Date of Birth*</label>
+                        <input type="date" class="form-control" id="birthDate" name="birthDate" required>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Next &rarr;</button>
