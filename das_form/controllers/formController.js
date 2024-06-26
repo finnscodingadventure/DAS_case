@@ -26,16 +26,16 @@ exports.renderLoadingScreen = (req, res) => {
     res.render('loading');
 };
 
+exports.renderResultScreen = (req, res) => {
+    res.render('result', { decision: aiDecision.decision, explanation: aiDecision.explanation });
+};
+
 exports.getResultStatus = (req, res) => {
     if (aiDecision) {
-        res.json({ status: 'ready' });
+        res.json({ status: 'ready', decision: aiDecision.decision, explanation: aiDecision.explanation });
     } else {
         res.json({ status: 'processing' });
     }
-}
-
-exports.renderResultScreen = (req, res) => {
-    res.render('result', { decision: aiDecision.decision, explanation: aiDecision.explanation });
 };
 
 exports.handleSubmit = async (req, res) => {
@@ -56,8 +56,12 @@ exports.handleSubmit = async (req, res) => {
             explanation: response.data.explanation
         };
 
-        // Redirect to result page with decision and explanation
-        res.redirect('/result');
+        // Polling or waiting for the AI decision and explanation
+        // You can use setTimeout or another approach to simulate waiting
+        setTimeout(() => {
+            // Redirect to result page with decision and explanation
+            res.redirect('/result');
+        }, 5000); // Wait for 5 seconds before redirecting
     } catch (error) {
         console.error('Error submitting form data:', error);
         res.status(500).send('Error submitting form data.');
