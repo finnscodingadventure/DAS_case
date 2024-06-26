@@ -31,6 +31,8 @@ header h1 {
 
 .mt-4 img {
   width: 140px;
+  vertical-align: middle;
+  display: inline!important;
 }
 
 header .breadcrumb {
