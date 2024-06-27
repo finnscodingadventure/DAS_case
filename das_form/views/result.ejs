@@ -3,22 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Result</title>
+    <title>Case Registration - Result</title>
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+            max-width: 900px;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        header img {
+            width: 140px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .result-decision {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+        .result-decision.covered {
+            color: #28a745;
+        }
+        .result-decision.not-covered {
+            color: #dc3545;
+        }
+        .explanation {
+            font-size: 1rem;
+            margin: 20px 0;
+            line-height: 1.5;
+            text-align: left;
+        }
+        footer {
+            margin-top: 20px;
+        }
+        footer p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <header class="mt-4">
+        <header>
             <img src="/assets/das.png" alt="DAS Logo">
-            <h1 class="display-4">Case Registration - Result</h1>
         </header>
-
-        <section class="my-4">
+        <h1>Case Registration - Result</h1>
+        <div class="result-decision <%= decision.toLowerCase().replace(' ', '-') %>">
+            Decision: <%= decision %>
+        </div>
+        <div class="explanation">
             <h2>AI Decision</h2>
-            <p>Decision: <strong><%= decision %></strong></p>
-            <p>Explanation: <%= explanation %></p>
-        </section>
-
+            <p><strong>Explanation:</strong> <%= explanation %></p>
+        </div>
         <footer>
             <p>Made by <a href="https://digilize.de">Digilize Agency</a></p>
         </footer>
