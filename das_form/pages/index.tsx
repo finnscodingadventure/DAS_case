@@ -1,4 +1,4 @@
-// pages/form_step1.tsx
+// pages/index.tsx
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
@@ -7,17 +7,12 @@ export default function FormStep1() {
   const [amountConflict, setAmountConflict] = useState('');
   const [caseType, setCaseType] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const response = await fetch('/api/step1', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amountConflict, caseType })
+    router.push({
+      pathname: '/form_step2',
+      query: { amountConflict, caseType },
     });
-
-    if (response.ok) {
-      router.push('/form_step2');
-    }
   };
 
   return (
@@ -49,21 +44,23 @@ export default function FormStep1() {
           </ul>
         </div>
 
+        <p>Registering your case takes 10-15 minutes.</p>
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Does your conflict involve an amount higher than €175?</label>
-            <div className="custom-radio-group">
-              <div className="custom-radio">
-                <input type="radio" id="yes" name="amountConflict" value="Yes" onChange={(e) => setAmountConflict(e.target.value)} required />
-                <label htmlFor="yes">Yes</label>
+            <div>
+              <div className="form-check form-check-inline">
+                <input className="form-check-input" type="radio" name="amountConflict" id="yes" value="Yes" onChange={() => setAmountConflict('Yes')} required />
+                <label className="form-check-label" htmlFor="yes">Yes</label>
               </div>
-              <div className="custom-radio">
-                <input type="radio" id="no" name="amountConflict" value="No" onChange={(e) => setAmountConflict(e.target.value)} required />
-                <label htmlFor="no">No</label>
+              <div className="form-check form-check-inline">
+                <input className="form-check-input" type="radio" name="amountConflict" id="no" value="No" onChange={() => setAmountConflict('No')} />
+                <label className="form-check-label" htmlFor="no">No</label>
               </div>
-              <div className="custom-radio">
-                <input type="radio" id="unknown" name="amountConflict" value="Don't know / Not applicable" onChange={(e) => setAmountConflict(e.target.value)} required />
-                <label htmlFor="unknown">Don't know / Not applicable</label>
+              <div className="form-check form-check-inline">
+                <input className="form-check-input" type="radio" name="amountConflict" id="unknown" value="Don't know / Not applicable" onChange={() => setAmountConflict("Don't know / Not applicable")} />
+                <label className="form-check-label" htmlFor="unknown">Don't know / Not applicable</label>
               </div>
             </div>
           </div>

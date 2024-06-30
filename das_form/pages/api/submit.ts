@@ -1,27 +1,29 @@
-// pages/api/submit.ts
-
-import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 
 const makeWebhookURL = 'https://hook.eu2.make.com/humritfhdt7gbqop56frbiye9vrzcojc'; // Replace with your Make.com webhook URL
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'POST') {
-    try {
-      const response = await axios.post(makeWebhookURL, req.body, {
-        headers: { 'Content-Type': 'application/json' }
-      });
-      const aiDecision = {
-        decision: response.data.decision,
-        explanation: response.data.explanation
-      };
-      // Store aiDecision in session or database
-      res.status(200).json({ message: 'Data submitted', aiDecision });
-    } catch (error) {
-      console.error('Error submitting form data:', error);
-      res.status(500).json({ error: 'Error submitting form data' });
+export default async function handler(req, res) {
+    if (req.method === 'POST') {
+        const data = req.body;
+
+        try {
+            // Send data to Make.com webhook
+            const response = await axios.post(makeWebhookURL, data, {
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            // Extract decision and explanation from Make.com response
+            const decision = response.data.decision;
+            const explanation = response.data.explanation;
+
+            // Send response back to the client
+            res.status(200).json({ decision, explanation });
+        } catch (error) {
+            console.error('Error submitting form data:', error);
+            res.status(500).json({ error: 'Error submitting form data.' });
+        }
+    } else {
+        res.setHeader('Allow', ['POST']);
+        res.status(405).end(`Method ${req.method} Not Allowed`);
     }
-  } else {
-    res.status(405).end(); // Method Not Allowed
-  }
 }

@@ -1,5 +1,12 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js"
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/api/step3": "pages/api/step3.js",
+  "/form_summary": "pages/form_summary.js",
+  "/form_step3": "pages/form_step3.js",
+  "/form_step2": "pages/form_step2.js",
+  "/api/summary": "pages/api/summary.js",
+  "/api/step2": "pages/api/step2.js"
 }
