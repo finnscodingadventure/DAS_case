@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-gray-100 text-gray-900;
+    font-family: 'Inter', sans-serif;
+}
+
+.container {
+    @apply mx-auto px-4;
+    max-width: 1200px;
+}
+
+header {
+    @apply text-center my-8;
+}
+
+header img {
+    @apply mx-auto;
+}
+
+.breadcrumb {
+    @apply flex justify-center mb-4;
+}
+
+.breadcrumb-item {
+    @apply text-sm text-blue-600;
+}
+
+.breadcrumb-item.active {
+    @apply font-bold text-black;
+}
+
+.summary-table {
+    @apply w-full border-collapse my-4;
+}
+
+.summary-table th, .summary-table td {
+    @apply p-4 border border-gray-300;
+}
+
+.summary-table th {
+    @apply bg-gray-200 text-left font-bold;
+}
+
+.summary-table tr:nth-child(even) {
+    @apply bg-gray-100;
+}
+
+.summary-table tr:hover {
+    @apply bg-gray-200;
+}
+
+.category-title {
+    @apply bg-blue-600 text-white text-center py-2 font-bold my-4;
+}
+
+.form-group {
+    @apply mb-6;
+}
+
+.form-group label {
+    @apply block text-sm font-medium text-gray-700;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    @apply mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm;
+}
+
+.btn {
+    @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+}
+
+footer {
+    @apply text-center mt-8;
+}
