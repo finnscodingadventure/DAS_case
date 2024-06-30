@@ -1,5 +1,5 @@
 const axios = require('axios');
-const makeWebhookURL = 'https://hook.eu2.make.com/humritfhdt7gbqop56frbiye9vrzcojc'; // Replace with your Make.com webhook URL
+const makeWebhookURL = 'https://hook.eu2.make.com/humritfhdt7gbqop56frbiye9vrzcojc';
 
 let aiDecision = null;
 
@@ -23,11 +23,15 @@ exports.renderFormSummary = (req, res) => {
 };
 
 exports.renderLoadingScreen = (req, res) => {
-    res.render('loading');
+    res.redirect('http://localhost:3000/loading'); // Adjust the URL as needed
 };
 
 exports.renderResultScreen = (req, res) => {
-    res.render('result', { decision: aiDecision.decision, explanation: aiDecision.explanation });
+    if (aiDecision) {
+        res.render('result', { decision: aiDecision.decision, explanation: aiDecision.explanation });
+    } else {
+        res.status(500).send('AI decision is not ready.');
+    }
 };
 
 exports.getResultStatus = (req, res) => {
@@ -41,9 +45,6 @@ exports.getResultStatus = (req, res) => {
 exports.handleSubmit = async (req, res) => {
     const data = req.body;
 
-    // Render loading screen
-    res.render('loading');
-
     try {
         // Send data to Make.com webhook
         const response = await axios.post(makeWebhookURL, data, {
@@ -56,12 +57,8 @@ exports.handleSubmit = async (req, res) => {
             explanation: response.data.explanation
         };
 
-        // Polling or waiting for the AI decision and explanation
-        // You can use setTimeout or another approach to simulate waiting
-        setTimeout(() => {
-            // Redirect to result page with decision and explanation
-            res.redirect('/result');
-        }, 5000); // Wait for 5 seconds before redirecting
+        // Redirect to the loading screen
+        res.redirect('/loading');
     } catch (error) {
         console.error('Error submitting form data:', error);
         res.status(500).send('Error submitting form data.');
