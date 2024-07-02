@@ -1,6 +1,6 @@
 // pages/loading.tsx
 import { useEffect, useState } from 'react';
-import { MultiStepLoader } from '@/components/multi-step-loader';
+import { MultiStepLoader } from '../components/multi-step-loader';
 import { useRouter } from 'next/router';
 
 const loadingStates = [

@@ -8,6 +8,7 @@ const {
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
+    './src/**/*.{ts,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   darkMode: "class",
